@@ -9,6 +9,7 @@ include $(TOPDIR)/rules.mk
 ARCH:=aarch64
 BOARD:=mvebu64
 BOARDNAME:=Marvell 64b Boards
+FEATURES:=gpio usb pci pcie nand ramdisk
 MAINTAINER:=Luka Perkov <luka@openwrt.org>
 
 KERNEL_PATCHVER:=4.4
