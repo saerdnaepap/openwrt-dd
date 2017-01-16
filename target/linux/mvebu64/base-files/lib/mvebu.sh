@@ -13,7 +13,7 @@ mvebu_board_detect() {
 	machine=$(cat /proc/device-tree/model)
 
 	case "$machine" in
-	*"Marvell Armada DB-88F8040-Modular")
+	*"Marvell Armada-8040 development board router setup")
 		name="armada-88F8040-DB"
 		;;
 	*)

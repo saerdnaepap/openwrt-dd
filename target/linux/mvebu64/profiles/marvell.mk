@@ -7,6 +7,7 @@
 
 define Profile/armada-88F8040-DB
   NAME:=Marvell Armada 88F8040-DB
+  NAME:=Marvell Armada-8040 DB (DB-88F8040-Modular)
   CPU_TYPE:=cortex-a53
   CPU_SUBTYPE:=neon-vfpv4
   PACKAGES:=

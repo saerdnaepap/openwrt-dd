@@ -16,7 +16,7 @@ define Image/Prepare
 	$(call CompressGzip,$(KDIR)/vmlinux,$(KDIR)/vmlinux.bin.gz)
 endef
 
-# Marvell Armada DB-88F8040-Modular
+# Marvell Armada-8040 development board router setup
 define Image/BuildKernel/Profile/armada-88F8040-DB
 	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-88F8040-Image
 	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-88F8040-Image.gz
