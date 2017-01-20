@@ -10,7 +10,7 @@ define Profile/armada-88F8040-DB
   NAME:=Marvell Armada-8040 DB (DB-88F8040-Modular)
   CPU_TYPE:=cortex-a53
   CPU_SUBTYPE:=neon-vfpv4
-  PACKAGES:=
+  PACKAGES:= kmod-marvell-sata kmod-scsi-generic kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-usb-core kmod-usb-ohci kmod-usb-uhci kmod-usb-storage kmod-usb-storage-extras kmod-usb2 kmod-usb3 usbutils kmod-mmc mmc-utils kmod-mtd-rw kmod-nbd pciutils fdisk lsblk kmod-ipsec
 endef
 
 define Profile/armada-88F8040-DB/Description
