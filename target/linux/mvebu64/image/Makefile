@@ -20,7 +20,7 @@ endef
 define Image/BuildKernel/Profile/armada-88F8040-DB
 	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-88F8040-Image
 	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-88F8040-Image.gz
-	cp $(DTS_DIR)/marvell/armada-8040-db-router.dtb $(BIN_DIR)/armada-88F8040.dtb
+	cp $(DTS_DIR)/marvell/armada-8040-db-A.dtb $(BIN_DIR)/armada-88F8040-db-A.dtb
 ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-88F8040-Image-initramfs
 endif
