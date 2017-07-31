@@ -13,6 +13,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@GITHUB/01org/TPM2.0-TSS
 PKG_CAT:=bzcat
 
+PKG_FIXUP:=autoreconf
 #PKG_BUILD_DEPENDS:=util-linux
 #PKG_INSTALL:=1
 
@@ -33,8 +34,10 @@ endef
 define Build/Prepare
 	$(PKG_UNPACK)
 	touch $(PKG_BUILD_DIR)/testtpm.txt
+	cp ax_pthread.m4 $(PKG_BUILD_DIR)/m4
 	(cd $(PKG_BUILD_DIR) && ./bootstrap)
 endef
+
 
 $(eval $(call BuildPackage,TPM2.0-TSS))
   
