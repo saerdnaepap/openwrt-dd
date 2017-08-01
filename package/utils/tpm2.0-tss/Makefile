@@ -17,6 +17,10 @@ PKG_MD5SUM:=91d7a90f18a17dd40603e3966d63b9f6
 
 PKG_FIXUP:=autoreconf
 
+PKG_INSTALL:=1
+
+
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/tpm2.0-tss
@@ -24,7 +28,7 @@ define Package/tpm2.0-tss
   CATEGORY:=Utilities
   TITLE:=TPM 2.0 trusted software stack by Intel
   URL:=https://github.com/01org/TPM2.0-TSS
-  DEPENDS:=+libc +libpthread
+  DEPENDS:=+libc +libpthread +libstdcpp
 endef
 
 define Package/tpm2.0-tss/description
@@ -38,26 +42,23 @@ define Build/Prepare
 	(cd $(PKG_BUILD_DIR) && ./bootstrap)
 endef
 
-#MAKE_FLAGS += all
-
-#define Build/Configure
-#	$(Build/Configure/Default)
-#	cp ax_pthread.m4 $(PKG_BUILD_DIR)/m4
-#	(cd $(PKG_BUILD_DIR) && ./bootstrap)
-#	(cd $(PKG_BUILD_DIR) && CONFIG_SITE=$(pwd)/lib/default_config.site ./configure)
-#	touch $(PKG_BUILD_DIR)/configured.txt
-#endef
-
-#define Build/Compile
-#	touch compiletest.txt
-#	(cd $(PKG_BUILD_DIR) && make)
-#endef
-
-#define Build/Install
-#	(cd $(PKG_BUILD_DIR) && make install)
-#endef
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libsapi.{a,so*} $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/*.pc $(1)/usr/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)/usr/include
+	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
+#	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/*.pc.in $(1)/usr/lib/pkgconfig/
+endef
 
 define Package/tpm2.0-tss/install
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/libsapi.so* $(1)/usr/lib/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/libtcti-device.so* $(1)/usr/lib/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/libtcti-socket.so* $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/resourcemgr $(1)/usr/sbin
 	touch $(PKG_BUILD_DIR)/installed.txt
 endef
 
