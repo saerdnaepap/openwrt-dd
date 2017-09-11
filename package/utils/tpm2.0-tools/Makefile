@@ -19,7 +19,7 @@ PKG_FIXUP:=autoreconf
 
 PKG_INSTALL:=1
 
-
+TARGET_CFLAGS+= -U_FORTIFY_SOURCE --param ssp-buffer-size=1
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -43,7 +43,7 @@ define Build/Prepare
 endef
 
 define Build/Configure
-	$(call Build/Configure/Default, --disable-hardening) #WAR to circumvent a compiler warning. Needs fix!
+	$(call Build/Configure/Default, ) #WAR to circumvent a compiler warning. Needs fix!
 endef
 
 define Package/tpm2.0-tools/install
