@@ -1,0 +1,11 @@
+--- a/src/common/ctrl_iface_common.c	2017-07-04 15:44:33.000000000 +0200
++++ b/src/common/ctrl_iface_common.c	2017-09-13 09:42:55.687178000 +0200
+@@ -60,7 +60,7 @@
+ 
+ 		if (a_len != b_len ||
+ 		    os_memcmp(u_a->sun_path, u_b->sun_path,
+-			      a_len - offsetof(struct sockaddr_un, sun_path))
++			      a_len - offsetof(struct sockaddr_un, sun_path) - 2)
+ 		    != 0)
+ 			return 1;
+ 		break;
