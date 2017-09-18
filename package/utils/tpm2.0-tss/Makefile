@@ -8,13 +8,16 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tpm2.0-tss
-PKG_VERSION:=92f7adc
+#PKG_VERSION:=92f7adc
 #PKG_VERSION:=64b11df
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=https://github.com/01org/TPM2.0-TSS
-PKG_MD5SUM:=91d7a90f18a17dd40603e3966d63b9f6
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/01org/TPM2.0-TSS.git
+PKG_SOURCE_VERSION:=92f7adc
+PKG_SOURCE_DATE:=2017-02-04
+#PKG_MD5SUM:=91d7a90f18a17dd40603e3966d63b9f6
 
 PKG_FIXUP:=autoreconf
 
@@ -39,6 +42,7 @@ endef
 
 define Build/Prepare
 	$(Build/Prepare/Default)
+	mkdir $(PKG_BUILD_DIR)/m4
 	cp ax_pthread.m4 $(PKG_BUILD_DIR)/m4
 	(cd $(PKG_BUILD_DIR) && ./bootstrap)
 endef
