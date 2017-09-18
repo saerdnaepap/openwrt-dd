@@ -1,0 +1,25 @@
+diff -uN a/tools/tpm2_certify.c b/tools/tpm2_certify.c
+--- a/tools/tpm2_certify.c	2017-09-18 09:27:12.000000000 +0200
++++ b/tools/tpm2_certify.c	2017-09-11 09:21:29.223910000 +0200
+@@ -95,7 +95,7 @@
+ static bool set_scheme(TSS2_SYS_CONTEXT *sapi_context, TPMI_DH_OBJECT key_handle,
+         TPMI_ALG_HASH halg, TPMT_SIG_SCHEME *scheme) {
+ 
+-    TPM_ALG_ID type;
++    TPM_ALG_ID type = 0;
+     bool result = get_key_type(sapi_context, key_handle, &type);
+     if (!result) {
+         return false;
+diff -uN a/tools/tpm2_sign.c b/tools/tpm2_sign.c
+--- a/tools/tpm2_sign.c	2017-09-18 09:27:12.000000000 +0200
++++ b/tools/tpm2_sign.c	2017-09-11 15:39:38.119645000 +0200
+@@ -92,7 +92,7 @@
+ static bool set_scheme(TSS2_SYS_CONTEXT *sapi_context, TPMI_DH_OBJECT keyHandle,
+         TPMI_ALG_HASH halg, TPMT_SIG_SCHEME *inScheme) {
+ 
+-    TPM_ALG_ID type;
++    TPM_ALG_ID type = 0;
+     bool result = get_key_type(sapi_context, keyHandle, &type);
+     if (!result) {
+         return false;
+

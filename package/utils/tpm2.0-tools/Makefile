@@ -8,12 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tpm2.0-tools
-PKG_VERSION:=c2d0cc3
+#PKG_VERSION:=c2d0cc3
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=https://github.com/01org/tpm2.0-tools
-PKG_MD5SUM:=152c79b363d2e7914c256cc2f4cb8b49
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/01org/tpm2.0-tools.git
+PKG_SOURCE_VERSION:=c2d0cc3
+PKG_SOURCE_DATE:=2017-07-27
+#PKG_MD5SUM:=152c79b363d2e7914c256cc2f4cb8b49
 
 PKG_FIXUP:=autoreconf
 
@@ -43,7 +46,7 @@ define Build/Prepare
 endef
 
 define Build/Configure
-	$(call Build/Configure/Default, ) #WAR to circumvent a compiler warning. Needs fix!
+	$(call Build/Configure/Default, ) 
 endef
 
 define Package/tpm2.0-tools/install
