@@ -41,8 +41,8 @@ endef
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/utils \
 		CC="$(TARGET_CC)" \
-		CFLAGS="$(TARGET_CFLAGS)" \
-		LDFLAGS="$(TARGET_LDFLAGS)"
+		CFLAGS="$(TARGET_CFLAGS) -DTPM_POSIX" \
+		LDFLAGS="$(TARGET_LDFLAGS)" 
 endef
 
 define Build/Install
