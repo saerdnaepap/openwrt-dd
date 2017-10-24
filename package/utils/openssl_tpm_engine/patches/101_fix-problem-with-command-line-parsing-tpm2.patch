@@ -1,0 +1,14 @@
+diff --git a/create_tpm2_key.c b/create_tpm2_key.c
+index 001bf1d..e88f0bd 100644
+--- a/create_tpm2_key.c
++++ b/create_tpm2_key.c
+@@ -241,7 +241,8 @@ TPM_RC wrap_key(TPM2B_PRIVATE *priv, const char *password, EVP_PKEY *pkey)
+ 
+ int main(int argc, char **argv)
+ {
+-	char *filename, c, *wrap = NULL, *auth = NULL;
++	char *filename, *wrap = NULL, *auth = NULL;
++	signed char c;
+ 	int option_index;
+ 	const char *reason;
+ 	TSS_CONTEXT *tssContext = NULL;
