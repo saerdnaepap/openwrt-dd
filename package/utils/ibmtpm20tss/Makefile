@@ -48,17 +48,17 @@ endef
 define Build/Install
 endef
 
-#define Build/InstallDev
-#	$(INSTALL_DIR) $(1)/usr/lib
-#	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libsapi.{a,so*} $(1)/usr/lib/
+define Build/InstallDev
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_BUILD_DIR)/utils/libtss.so* $(1)/usr/lib/
 #	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libtcti-device.{a,so*} $(1)/usr/lib/
 #	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libtcti-socket.{a,so*} $(1)/usr/lib/
 #	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 #	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/*.pc $(1)/usr/lib/pkgconfig/
-#	$(INSTALL_DIR) $(1)/usr/include
-#	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
+	$(INSTALL_DIR) $(1)/usr/include/tss2
+	$(CP) $(PKG_BUILD_DIR)/utils/tss2/* $(1)/usr/include/tss2
 #	$(CP) $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/*.pc.in $(1)/usr/lib/pkgconfig/
-#endef
+endef
 
 define Package/ibmtpm20tss/install
 	$(INSTALL_DIR) $(1)/usr/lib
