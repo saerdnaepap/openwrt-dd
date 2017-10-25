@@ -48,6 +48,8 @@ define Package/openssl_tpm2_engine/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/usr/lib/engines #our openssl version searches for engines in /usr/lib/engines per default
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/engines/libtpm2.so* $(1)/usr/lib/engines
+	$(INSTALL_DIR) $(1)/etc/ssl
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/openssl.cnf $(1)/etc/ssl
 endef
 
 $(eval $(call BuildPackage,openssl_tpm2_engine))
