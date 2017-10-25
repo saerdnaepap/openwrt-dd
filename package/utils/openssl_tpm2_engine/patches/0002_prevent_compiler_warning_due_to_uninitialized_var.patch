@@ -1,0 +1,13 @@
+diff -puN a/e_tpm2-rsa.c b/e_tpm2-rsa.c
+--- a/e_tpm2-rsa.c	2017-10-18 06:17:47.000000000 +0200
++++ b/e_tpm2-rsa.c	2017-10-25 08:29:54.741075591 +0200
+@@ -161,7 +161,7 @@ static int tpm2_rsa_priv_dec(int flen,
+ 	int rv;
+ 	RSA_Decrypt_In in;
+ 	RSA_Decrypt_Out out;
+-	TSS_CONTEXT *tssContext;
++	TSS_CONTEXT *tssContext=NULL;
+ 	char *auth;
+ 	TPM_HANDLE authHandle;
+ 
+Common subdirectories: a/tests and b/tests
