@@ -65,8 +65,8 @@ define Package/ibmtpm20tss/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/utils/libtss.so* $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/utils/bin/* $(1)/usr/sbin
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/ibmtpm20tss.init $(1)/etc/init.d/ibmtpm20tss
+	$(INSTALL_DIR) $(1)/root/
+	$(INSTALL_BIN) ./files/ibmtpm20tss.init $(1)/root/.profile
 endef
 
 $(eval $(call BuildPackage,ibmtpm20tss))

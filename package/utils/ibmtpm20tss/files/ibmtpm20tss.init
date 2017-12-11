@@ -1,10 +1,5 @@
-#!/bin/sh /etc/rc.common
-# Copyright (C) 2017 A. Pape
-
-START=50
-
-start() {
-	export TPM_DEVICE=/dev/tpm0
-	export TPM_INTERFACE_TYPE=dev
-}
+TPM_DEVICE=/dev/tpm0
+TPM_INTERFACE_TYPE=dev
+export TPM_DEVICE
+export TPM_INTERFACE_TYPE
 
