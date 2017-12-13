@@ -127,16 +127,28 @@ openssl_read_key(char *filename)
 
 void tpm2_public_template_rsa(TPMT_PUBLIC *pub)
 {
+    static BYTE auth_policy[] = {
+            0x83, 0x71, 0x97, 0x67, 0x44, 0x84, 0xB3, 0xF8, 0x1A, 0x90, 0xCC,
+            0x8D, 0x46, 0xA5, 0xD7, 0x24, 0xFD, 0x52, 0xD7, 0x6E, 0x06, 0x52,
+            0x0B, 0x64, 0xF2, 0xA1, 0xDA, 0x1B, 0x33, 0x14, 0x69, 0xAA
+    };
+
 	pub->type = TPM_ALG_RSA;
 	pub->nameAlg = name_alg;
 	/* note: all our keys are decrypt only.  This is because
 	 * we use the TPM2_RSA_Decrypt operation for both signing
 	 * and decryption (see e_tpm2.c for details) */
 	pub->objectAttributes.val = TPMA_OBJECT_NODA |
-		TPMA_OBJECT_DECRYPT |
-		TPMA_OBJECT_USERWITHAUTH;
-	pub->authPolicy.t.size = 0;
-	pub->parameters.rsaDetail.symmetric.algorithm = TPM_ALG_NULL;
+		TPMA_OBJECT_RESTRICTED |
+		TPMA_OBJECT_SIGN |
+		TPMA_OBJECT_FIXEDTPM |
+		TPMA_OBJECT_FIXEDPARENT |
+		TPMA_OBJECT_ADMINWITHPOLICY;
+	pub->authPolicy.t.size = 32;
+	memcpy(pub->authPolicy.t.buffer, auth_policy, 32);
+	pub->parameters.rsaDetail.symmetric.algorithm = TPM_ALG_AES;
+	pub->parameters.rsaDetail.symmetric.keyBits.aes=128;
+	pub->parameters.rsaDetail.symmetric.mode.aes=TPM_ALG_CFB;
 	pub->parameters.rsaDetail.scheme.scheme = TPM_ALG_NULL;
 }
 
@@ -637,7 +649,7 @@ int main(int argc, char **argv)
 			tpm2_public_template_rsa(&cin.inPublic.publicArea);
 			cin.inPublic.publicArea.parameters.rsaDetail.keyBits = key_size;
 			cin.inPublic.publicArea.parameters.rsaDetail.exponent = 0;
-			cin.inPublic.publicArea.unique.rsa.t.size = 0;
+			cin.inPublic.publicArea.unique.rsa.t.size = 256;
 
 		} else {
 			tpm2_public_template_ecc(&cin.inPublic.publicArea, ecc);
