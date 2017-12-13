@@ -22,9 +22,10 @@ define Package/create_devid
 endef
 
 define Package/create_devid/description
-  Software stack for trusted platform module
-  version 2.0 provided by IBM. Non-TCG compliant
-  API but usage shall be simpler.
+  Tool to create an IDevID key pair compliant to
+  TPM 2.0 standards. The key pair is stored in such
+  a way that it can be used with the TPM2.0 compliant
+  engine for openssl to generate an IDevID certificate.
 endef
 
 define Build/Prepare
