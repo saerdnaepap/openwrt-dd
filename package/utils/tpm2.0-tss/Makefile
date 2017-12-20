@@ -66,8 +66,8 @@ define Package/tpm2.0-tss/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/lib/libtcti-socket.so* $(1)/usr/lib/
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/resourcemgr $(1)/usr/sbin
-#	$(INSTALL_DIR) $(1)/etc/init.d
-#	$(INSTALL_BIN) ./files/resourcemgr.init $(1)/etc/init.d/resourcemgr
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/resourcemgr.init $(1)/etc/init.d/resourcemgr
 	touch $(PKG_BUILD_DIR)/installed.txt
 endef
 
