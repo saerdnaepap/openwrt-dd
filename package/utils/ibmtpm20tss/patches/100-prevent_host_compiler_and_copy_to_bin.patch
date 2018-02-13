@@ -14,7 +14,7 @@
  
  activatecredential:	tss2/tss.h activatecredential.o $(LIBTSS)
 -			$(CC) $(LNFLAGS) $(LNAFLAGS) activatecredential.o $(LNALIBS) -o activatecredential
-+			mkdir bin
++			mkdir -p bin
 +			$(CC) $(LNFLAGS) $(LNAFLAGS) activatecredential.o $(LNALIBS) -o bin/activatecredential
  eventextend:		eventextend.o eventlib.o $(LIBTSS)
 -			$(CC) $(LNFLAGS) $(LNAFLAGS) eventextend.o eventlib.o $(LNALIBS) -o eventextend
