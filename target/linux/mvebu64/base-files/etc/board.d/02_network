@@ -26,6 +26,9 @@ armada-3720-db)
 armada-ESPRESSObin)
 	ucidef_set_interfaces_lan_wan "lan0 lan1" "wan"
 	;;
+armada-IUNO)
+	ucidef_set_interfaces_lan_wan "lan0 lan1 lan2" "wan"
+	;;
 *)
 	ucidef_set_interface_lan "eth0"
 	;;

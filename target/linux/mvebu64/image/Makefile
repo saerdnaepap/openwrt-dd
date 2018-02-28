@@ -66,6 +66,16 @@ ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
 endif
 endef
 
+# Marvell IUNO Prototype Board
+define Image/BuildKernel/Profile/armada-IUNO
+	cp $(KDIR)/Image $(BIN_DIR)/openwrt-armada-IUNO-Image
+	cp $(KDIR)/Image.gz $(BIN_DIR)/openwrt-armada-IUNO-Image.gz
+	cp $(DTS_DIR)/marvell/iuno-prototype.dtb $(BIN_DIR)/iuno-prototype.dtb
+ifeq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),y)
+	cp $(KDIR)/Image-initramfs $(BIN_DIR)/openwrt-armada-IUNO-Image-initramfs
+endif
+endef
+
 define Image/Build/squashfs
     $(call prepare_generic_squashfs,$(KDIR)/root.squashfs)
 endef

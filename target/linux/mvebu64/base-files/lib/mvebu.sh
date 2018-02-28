@@ -28,6 +28,9 @@ mvebu_board_detect() {
 	*"Marvell 8040 MACHIATOBin")
 		name="armada-a8k-MACCHIATOBin"
 		;;
+	*"IUNO Project Prototype Board")
+		name="armada-IUNO"
+		;;
 	*)
 		name="unknown"
 		;;
