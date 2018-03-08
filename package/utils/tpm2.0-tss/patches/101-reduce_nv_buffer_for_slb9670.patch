@@ -1,0 +1,11 @@
+--- tpm2.0-tss-92f7adc.orig/include/sapi/implementation.h	2017-07-31 11:04:54.000000000 +0200
++++ tpm2.0-tss-2017-02-04-92f7adc/include/sapi/implementation.h	2018-03-08 12:41:03.644252000 +0100
+@@ -301,7 +301,7 @@ Any marks and brands contained herein ar
+ #define MAX_CONTEXT_SIZE		2048	/* This may be larger than necessary */
+ #define MAX_DIGEST_BUFFER		1024
+ #define MAX_NV_INDEX_SIZE               2048		/* maximum data size allowed in an NV Index */
+-#define MAX_NV_BUFFER_SIZE              1024
++#define MAX_NV_BUFFER_SIZE              768
+ #define MAX_CAP_BUFFER                  1024
+ #define NV_MEMORY_SIZE                  16384	/* size of NV memory in octets */
+ #define NUM_STATIC_PCR                  16
