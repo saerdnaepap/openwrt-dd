@@ -36,6 +36,10 @@ boot() {
 	grep -q debugfs /proc/filesystems && /bin/mount -o noatime -t debugfs debugfs /sys/kernel/debug
 	[ "$FAILSAFE" = "true" ] && touch /tmp/.failsafe
 
+	# hack to rescan the pcie bus again to get the memory mapping right
+	[ -f /sys/bus/pci/devices/0000:00:00.0 ] && echo 1 > /sys/bus/pci/devices/0000:00:00.0/remove
+	[ -f /sys/bus/pci ] && echo 1 > /sys/bus/pci/rescan
+
 	/sbin/kmodloader
 
 	# allow wifi modules time to settle

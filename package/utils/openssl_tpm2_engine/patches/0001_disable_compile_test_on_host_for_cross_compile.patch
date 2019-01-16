@@ -1,0 +1,24 @@
+diff -puN a/configure.ac b/configure.ac
+--- a/configure.ac	2017-10-18 06:17:47.000000000 +0200
++++ b/configure.ac	2017-10-25 08:16:51.664392833 +0200
+@@ -58,13 +58,13 @@ AC_LANG_CONFTEST(
+ 		  puts(OpenSSL_version(OPENSSL_ENGINES_DIR));
+ 		  #endif
+ 		  ]])])
+-gcc $CFLAGS conftest.c -lcrypto
+-enginesdir=`./a.out|sed 's/ENGINESDIR: //'`
+-if test -z "$enginesdir" ; then
+-    AC_MSG_FAILURE([Failed to find SSL engines directory])
+-fi
++#gcc $CFLAGS conftest.c -lcrypto
++#enginesdir=`./a.out|sed 's/ENGINESDIR: //'`
++#if test -z "$enginesdir" ; then
++#    AC_MSG_FAILURE([Failed to find SSL engines directory])
++#fi
+ 
+-AC_SUBST(enginesdir)
++#AC_SUBST(enginesdir)
+ 
+ AC_DISABLE_STATIC
+ AC_PROG_CC_STDC
+Common subdirectories: a/tests and b/tests

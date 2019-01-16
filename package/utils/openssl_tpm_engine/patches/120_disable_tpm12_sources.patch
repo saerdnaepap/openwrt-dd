@@ -1,0 +1,42 @@
+diff --git a/Makefile.am b/Makefile.am
+index fb4f529..8d7e175 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -2,19 +2,19 @@ SUBDIRS=. test
+ 
+ EXTRA_DIST = README  openssl.cnf.sample
+ 
+-openssl_engine_LTLIBRARIES=libtpm.la libtpm2.la
+-bin_PROGRAMS=create_tpm_key create_tpm2_key
++openssl_engine_LTLIBRARIES=libtpm2.la
++bin_PROGRAMS=create_tpm2_key
+ openssl_enginedir=@libdir@/openssl/engines
+ 
+-libtpm_la_LIBADD=-lcrypto -lc -ltspi
+-libtpm_la_SOURCES=e_tpm.c e_tpm.h e_tpm_err.c
++#libtpm_la_LIBADD=-lcrypto -lc -ltspi
++#libtpm_la_SOURCES=e_tpm.c e_tpm.h e_tpm_err.c
+ 
+ libtpm2_la_LIBADD=-lcrypto -lc -ltss
+ libtpm2_la_SOURCES=e_tpm2.c tpm2-common.c
+ libtpm2_la_CFLAGS=-g -Werror
+ 
+-create_tpm_key_SOURCES=create_tpm_key.c
+-create_tpm_key_LDADD=-ltspi
++#create_tpm_key_SOURCES=create_tpm_key.c
++#create_tpm_key_LDADD=-ltspi
+ 
+ create_tpm2_key_SOURCES=create_tpm2_key.c tpm2-common.c
+ create_tpm2_key_LDADD=-lcrypto -ltss
+diff --git a/test/Makefile.am b/test/Makefile.am
+index 2e0de61..3a2b8e7 100644
+--- a/test/Makefile.am
++++ b/test/Makefile.am
+@@ -1,4 +1,4 @@
+-noinst_PROGRAMS=engine_key_loading
++#noinst_PROGRAMS=engine_key_loading
+ 
+-engine_key_loading_SOURCES=engine_key_loading.c
+-engine_key_loading_LDADD=-ltspi -lcrypto
++#engine_key_loading_SOURCES=engine_key_loading.c
++#engine_key_loading_LDADD=-ltspi -lcrypto

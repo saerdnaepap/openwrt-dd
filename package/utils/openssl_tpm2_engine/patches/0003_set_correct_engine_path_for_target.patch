@@ -1,0 +1,13 @@
+diff -puN a/Makefile.am b/Makefile.am
+--- a/Makefile.am	2017-10-18 06:17:47.000000000 +0200
++++ b/Makefile.am	2017-10-25 09:30:50.210527410 +0200
+@@ -6,7 +6,7 @@ CLEANFILES = $(man1_MANS)
+ 
+ openssl_engine_LTLIBRARIES=libtpm2.la
+ bin_PROGRAMS=create_tpm2_key
+-openssl_enginedir=@enginesdir@
++openssl_enginedir=/usr/lib/engines
+ 
+ libtpm2_la_LDFLAGS= -no-undefined -avoid-version
+ libtpm2_la_LIBADD=-lcrypto -ltss
+Common subdirectories: a/tests and b/tests

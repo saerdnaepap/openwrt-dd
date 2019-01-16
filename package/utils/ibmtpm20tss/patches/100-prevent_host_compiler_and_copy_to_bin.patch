@@ -1,0 +1,336 @@
+--- a/utils/makefile	2017-07-17 21:52:31.000000000 +0200
++++ b/utils/makefile	2017-10-16 15:37:12.679675000 +0200
+@@ -40,7 +40,7 @@
+ 
+ # C compiler
+ 
+-CC = /usr/bin/gcc
++# CC = /usr/bin/gcc
+ 
+ # compile - common flags for TSS library and applications
+ 
+@@ -206,217 +206,218 @@
+ # applications
+ 
+ activatecredential:	tss2/tss.h activatecredential.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) activatecredential.o $(LNALIBS) -o activatecredential
++			mkdir -p bin
++			$(CC) $(LNFLAGS) $(LNAFLAGS) activatecredential.o $(LNALIBS) -o bin/activatecredential
+ eventextend:		eventextend.o eventlib.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) eventextend.o eventlib.o $(LNALIBS) -o eventextend
++			$(CC) $(LNFLAGS) $(LNAFLAGS) eventextend.o eventlib.o $(LNALIBS) -o bin/eventextend
+ imaextend:		imaextend.o imalib.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) imaextend.o imalib.o $(LNALIBS) -o imaextend
++			$(CC) $(LNFLAGS) $(LNAFLAGS) imaextend.o imalib.o $(LNALIBS) -o bin/imaextend
+ certify:		tss2/tss.h certify.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) certify.o $(LNALIBS) -o certify
++			$(CC) $(LNFLAGS) $(LNAFLAGS) certify.o $(LNALIBS) -o bin/certify
+ certifycreation:	tss2/tss.h certifycreation.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) certifycreation.o $(LNALIBS) -o certifycreation
++			$(CC) $(LNFLAGS) $(LNAFLAGS) certifycreation.o $(LNALIBS) -o bin/certifycreation
+ changeeps:		tss2/tss.h changeeps.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) changeeps.o $(LNALIBS) -o changeeps
++			$(CC) $(LNFLAGS) $(LNAFLAGS) changeeps.o $(LNALIBS) -o bin/changeeps
+ changepps:		tss2/tss.h changepps.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) changepps.o $(LNALIBS) -o changepps
++			$(CC) $(LNFLAGS) $(LNAFLAGS) changepps.o $(LNALIBS) -o bin/changepps
+ clear:			tss2/tss.h clear.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) clear.o $(LNALIBS) -o clear
++			$(CC) $(LNFLAGS) $(LNAFLAGS) clear.o $(LNALIBS) -o bin/clear
+ clearcontrol:		tss2/tss.h clearcontrol.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) clearcontrol.o $(LNALIBS) -o clearcontrol
++			$(CC) $(LNFLAGS) $(LNAFLAGS) clearcontrol.o $(LNALIBS) -o bin/clearcontrol
+ clockrateadjust:	tss2/tss.h clockrateadjust.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) clockrateadjust.o $(LNALIBS) -o clockrateadjust
++			$(CC) $(LNFLAGS) $(LNAFLAGS) clockrateadjust.o $(LNALIBS) -o bin/clockrateadjust
+ clockset:		tss2/tss.h clockset.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) clockset.o $(LNALIBS) -o clockset
++			$(CC) $(LNFLAGS) $(LNAFLAGS) clockset.o $(LNALIBS) -o bin/clockset
+ commit:			tss2/tss.h commit.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) commit.o $(LNALIBS) -o commit
++			$(CC) $(LNFLAGS) $(LNAFLAGS) commit.o $(LNALIBS) -o bin/commit
+ contextload:		tss2/tss.h contextload.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) contextload.o $(LNALIBS) -o contextload
++			$(CC) $(LNFLAGS) $(LNAFLAGS) contextload.o $(LNALIBS) -o bin/contextload
+ contextsave:		tss2/tss.h contextsave.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) contextsave.o $(LNALIBS) -o contextsave
++			$(CC) $(LNFLAGS) $(LNAFLAGS) contextsave.o $(LNALIBS) -o bin/contextsave
+ create:			tss2/tss.h create.o objecttemplates.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) create.o objecttemplates.o cryptoutils.o $(LNALIBS) -o create
++			$(CC) $(LNFLAGS) $(LNAFLAGS) create.o objecttemplates.o cryptoutils.o $(LNALIBS) -o bin/create
+ createloaded:		tss2/tss.h createloaded.o objecttemplates.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) createloaded.o objecttemplates.o cryptoutils.o $(LNALIBS) -o createloaded
++			$(CC) $(LNFLAGS) $(LNAFLAGS) createloaded.o objecttemplates.o cryptoutils.o $(LNALIBS) -o bin/createloaded
+ createprimary:		tss2/tss.h createprimary.o objecttemplates.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) createprimary.o objecttemplates.o cryptoutils.o $(LNALIBS) -o createprimary
++			$(CC) $(LNFLAGS) $(LNAFLAGS) createprimary.o objecttemplates.o cryptoutils.o $(LNALIBS) -o bin/createprimary
+ dictionaryattacklockreset:		tss2/tss.h dictionaryattacklockreset.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) dictionaryattacklockreset.o $(LNALIBS) -o dictionaryattacklockreset
++			$(CC) $(LNFLAGS) $(LNAFLAGS) dictionaryattacklockreset.o $(LNALIBS) -o bin/dictionaryattacklockreset
+ dictionaryattackparameters:		tss2/tss.h dictionaryattackparameters.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) dictionaryattackparameters.o $(LNALIBS) -o dictionaryattackparameters
++			$(CC) $(LNFLAGS) $(LNAFLAGS) dictionaryattackparameters.o $(LNALIBS) -o bin/dictionaryattackparameters
+ duplicate:		tss2/tss.h duplicate.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) duplicate.o $(LNALIBS) -o duplicate 
++			$(CC) $(LNFLAGS) $(LNAFLAGS) duplicate.o $(LNALIBS) -o bin/duplicate 
+ eccparameters:		tss2/tss.h eccparameters.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) eccparameters.o $(LNALIBS) -o eccparameters 
++			$(CC) $(LNFLAGS) $(LNAFLAGS) eccparameters.o $(LNALIBS) -o bin/eccparameters 
+ ecephemeral:		tss2/tss.h ecephemeral.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) ecephemeral.o $(LNALIBS) -o ecephemeral 
++			$(CC) $(LNFLAGS) $(LNAFLAGS) ecephemeral.o $(LNALIBS) -o bin/ecephemeral 
+ encryptdecrypt:		tss2/tss.h encryptdecrypt.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) encryptdecrypt.o $(LNALIBS) -o encryptdecrypt	
++			$(CC) $(LNFLAGS) $(LNAFLAGS) encryptdecrypt.o $(LNALIBS) -o bin/encryptdecrypt	
+ eventsequencecomplete:	tss2/tss.h eventsequencecomplete.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) eventsequencecomplete.o $(LNALIBS) -o eventsequencecomplete	
++			$(CC) $(LNFLAGS) $(LNAFLAGS) eventsequencecomplete.o $(LNALIBS) -o bin/eventsequencecomplete	
+ evictcontrol:		tss2/tss.h evictcontrol.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) evictcontrol.o $(LNALIBS) -o evictcontrol	
++			$(CC) $(LNFLAGS) $(LNAFLAGS) evictcontrol.o $(LNALIBS) -o bin/evictcontrol	
+ flushcontext:		tss2/tss.h flushcontext.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) flushcontext.o $(LNALIBS) -o flushcontext
++			$(CC) $(LNFLAGS) $(LNAFLAGS) flushcontext.o $(LNALIBS) -o bin/flushcontext
+ getcommandauditdigest:	tss2/tss.h getcommandauditdigest.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) getcommandauditdigest.o $(LNALIBS) -o getcommandauditdigest
++			$(CC) $(LNFLAGS) $(LNAFLAGS) getcommandauditdigest.o $(LNALIBS) -o bin/getcommandauditdigest
+ getcapability:		tss2/tss.h getcapability.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) getcapability.o $(LNALIBS) -o getcapability
++			$(CC) $(LNFLAGS) $(LNAFLAGS) getcapability.o $(LNALIBS) -o bin/getcapability
+ getrandom:		tss2/tss.h getrandom.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) getrandom.o $(LNALIBS) -o getrandom
++			$(CC) $(LNFLAGS) $(LNAFLAGS) getrandom.o $(LNALIBS) -o bin/getrandom
+ getsessionauditdigest:	tss2/tss.h getsessionauditdigest.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) getsessionauditdigest.o $(LNALIBS) -o getsessionauditdigest
++			$(CC) $(LNFLAGS) $(LNAFLAGS) getsessionauditdigest.o $(LNALIBS) -o bin/getsessionauditdigest
+ gettime:		tss2/tss.h gettime.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) gettime.o $(LNALIBS) -o gettime
++			$(CC) $(LNFLAGS) $(LNAFLAGS) gettime.o $(LNALIBS) -o bin/gettime
+ hashsequencestart:	tss2/tss.h hashsequencestart.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) hashsequencestart.o $(LNALIBS) -o hashsequencestart
++			$(CC) $(LNFLAGS) $(LNAFLAGS) hashsequencestart.o $(LNALIBS) -o bin/hashsequencestart
+ hash:			tss2/tss.h hash.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) hash.o $(LNALIBS) -o hash
++			$(CC) $(LNFLAGS) $(LNAFLAGS) hash.o $(LNALIBS) -o bin/hash
+ hierarchycontrol:	tss2/tss.h hierarchycontrol.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) hierarchycontrol.o $(LNALIBS) -o hierarchycontrol
++			$(CC) $(LNFLAGS) $(LNAFLAGS) hierarchycontrol.o $(LNALIBS) -o bin/hierarchycontrol
+ hierarchychangeauth:	tss2/tss.h hierarchychangeauth.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) hierarchychangeauth.o $(LNALIBS) -o hierarchychangeauth
++			$(CC) $(LNFLAGS) $(LNAFLAGS) hierarchychangeauth.o $(LNALIBS) -o bin/hierarchychangeauth
+ hmac:			tss2/tss.h hmac.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) hmac.o $(LNALIBS) -o hmac
++			$(CC) $(LNFLAGS) $(LNAFLAGS) hmac.o $(LNALIBS) -o bin/hmac
+ hmacstart:		tss2/tss.h hmacstart.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) hmacstart.o $(LNALIBS) -o hmacstart
++			$(CC) $(LNFLAGS) $(LNAFLAGS) hmacstart.o $(LNALIBS) -o bin/hmacstart
+ import:			tss2/tss.h import.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) import.o $(LNALIBS) -o import
++			$(CC) $(LNFLAGS) $(LNAFLAGS) import.o $(LNALIBS) -o bin/import
+ importpem:		tss2/tss.h importpem.o objecttemplates.o ekutils.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) importpem.o objecttemplates.o ekutils.o cryptoutils.o $(LNALIBS) -o importpem
++			$(CC) $(LNFLAGS) $(LNAFLAGS) importpem.o objecttemplates.o ekutils.o cryptoutils.o $(LNALIBS) -o bin/importpem
+ load:			tss2/tss.h load.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) load.o $(LNALIBS) -o load
++			$(CC) $(LNFLAGS) $(LNAFLAGS) load.o $(LNALIBS) -o bin/load
+ loadexternal:		tss2/tss.h loadexternal.o cryptoutils.o ekutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) loadexternal.o cryptoutils.o ekutils.o $(LNALIBS) -o loadexternal
++			$(CC) $(LNFLAGS) $(LNAFLAGS) loadexternal.o cryptoutils.o ekutils.o $(LNALIBS) -o bin/loadexternal
+ makecredential:		tss2/tss.h makecredential.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) makecredential.o $(LNALIBS) -o makecredential
++			$(CC) $(LNFLAGS) $(LNAFLAGS) makecredential.o $(LNALIBS) -o bin/makecredential
+ nvcertify:		tss2/tss.h nvcertify.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvcertify.o $(LNALIBS) -o nvcertify
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvcertify.o $(LNALIBS) -o bin/nvcertify
+ nvchangeauth:		tss2/tss.h nvchangeauth.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvchangeauth.o $(LNALIBS) -o nvchangeauth
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvchangeauth.o $(LNALIBS) -o bin/nvchangeauth
+ nvdefinespace:		tss2/tss.h nvdefinespace.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvdefinespace.o $(LNALIBS) -o nvdefinespace
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvdefinespace.o $(LNALIBS) -o bin/nvdefinespace
+ nvextend:		tss2/tss.h nvextend.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvextend.o $(LNALIBS) -o nvextend
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvextend.o $(LNALIBS) -o bin/nvextend
+ nvglobalwritelock:	tss2/tss.h nvglobalwritelock.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvglobalwritelock.o $(LNALIBS) -o nvglobalwritelock
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvglobalwritelock.o $(LNALIBS) -o bin/nvglobalwritelock
+ nvincrement:		tss2/tss.h nvincrement.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvincrement.o $(LNALIBS) -o nvincrement
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvincrement.o $(LNALIBS) -o bin/nvincrement
+ nvread:			tss2/tss.h nvread.o cryptoutils.o ekutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvread.o cryptoutils.o ekutils.o $(LNALIBS) -o nvread
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvread.o cryptoutils.o ekutils.o $(LNALIBS) -o bin/nvread
+ nvreadlock:		tss2/tss.h nvreadlock.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvreadlock.o $(LNALIBS) -o nvreadlock
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvreadlock.o $(LNALIBS) -o bin/nvreadlock
+ nvreadpublic:		tss2/tss.h nvreadpublic.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvreadpublic.o $(LNALIBS) -o nvreadpublic
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvreadpublic.o $(LNALIBS) -o bin/nvreadpublic
+ nvsetbits:		tss2/tss.h nvsetbits.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvsetbits.o $(LNALIBS) -o nvsetbits
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvsetbits.o $(LNALIBS) -o bin/nvsetbits
+ nvundefinespace:	tss2/tss.h nvundefinespace.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvundefinespace.o $(LNALIBS) -o nvundefinespace
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvundefinespace.o $(LNALIBS) -o bin/nvundefinespace
+ nvundefinespacespecial:	tss2/tss.h nvundefinespacespecial.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvundefinespacespecial.o $(LNALIBS) -o nvundefinespacespecial
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvundefinespacespecial.o $(LNALIBS) -o bin/nvundefinespacespecial
+ nvwrite:		tss2/tss.h nvwrite.o cryptoutils.o ekutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvwrite.o cryptoutils.o ekutils.o $(LNALIBS) -o nvwrite
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvwrite.o cryptoutils.o ekutils.o $(LNALIBS) -o bin/nvwrite
+ nvwritelock:		tss2/tss.h nvwritelock.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) nvwritelock.o $(LNALIBS) -o nvwritelock
++			$(CC) $(LNFLAGS) $(LNAFLAGS) nvwritelock.o $(LNALIBS) -o bin/nvwritelock
+ objectchangeauth:	tss2/tss.h objectchangeauth.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) objectchangeauth.o $(LNALIBS) -o objectchangeauth
++			$(CC) $(LNFLAGS) $(LNAFLAGS) objectchangeauth.o $(LNALIBS) -o bin/objectchangeauth
+ pcrallocate: 		tss2/tss.h pcrallocate.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrallocate.o $(LNALIBS) -o pcrallocate
++			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrallocate.o $(LNALIBS) -o bin/pcrallocate
+ pcrevent: 		tss2/tss.h pcrevent.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrevent.o $(LNALIBS) -o pcrevent
++			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrevent.o $(LNALIBS) -o bin/pcrevent
+ pcrextend: 		tss2/tss.h pcrextend.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrextend.o $(LNALIBS) -o pcrextend
++			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrextend.o $(LNALIBS) -o bin/pcrextend
+ pcrread: 		tss2/tss.h pcrread.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrread.o $(LNALIBS) -o pcrread
++			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrread.o $(LNALIBS) -o bin/pcrread
+ pcrreset: 		tss2/tss.h pcrreset.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrreset.o $(LNALIBS) -o pcrreset
++			$(CC) $(LNFLAGS) $(LNAFLAGS) pcrreset.o $(LNALIBS) -o bin/pcrreset
+ policyauthorize:	tss2/tss.h policyauthorize.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policyauthorize.o $(LNALIBS) -o policyauthorize
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policyauthorize.o $(LNALIBS) -o bin/policyauthorize
+ policyauthvalue:	tss2/tss.h policyauthvalue.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policyauthvalue.o $(LNALIBS) -o policyauthvalue
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policyauthvalue.o $(LNALIBS) -o bin/policyauthvalue
+ policycommandcode:	tss2/tss.h policycommandcode.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policycommandcode.o $(LNALIBS) -o policycommandcode
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policycommandcode.o $(LNALIBS) -o bin/policycommandcode
+ policycphash:		tss2/tss.h policycphash.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policycphash.o $(LNALIBS) -o policycphash
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policycphash.o $(LNALIBS) -o bin/policycphash
+ policycountertimer :	tss2/tss.h policycountertimer.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policycountertimer.o $(LNALIBS) -o policycountertimer
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policycountertimer.o $(LNALIBS) -o bin/policycountertimer
+ policygetdigest:	tss2/tss.h policygetdigest.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policygetdigest.o $(LNALIBS) -o policygetdigest
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policygetdigest.o $(LNALIBS) -o bin/policygetdigest
+ policymaker:		tss2/tss.h policymaker.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policymaker.o $(LNALIBS) -o policymaker
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policymaker.o $(LNALIBS) -o bin/policymaker
+ policymakerpcr:		tss2/tss.h policymakerpcr.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policymakerpcr.o $(LNALIBS) -o policymakerpcr
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policymakerpcr.o $(LNALIBS) -o bin/policymakerpcr
+ policyauthorizenv:	tss2/tss.h policyauthorizenv.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policyauthorizenv.o $(LNALIBS) -o policyauthorizenv
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policyauthorizenv.o $(LNALIBS) -o bin/policyauthorizenv
+ policynv:		tss2/tss.h policynv.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policynv.o $(LNALIBS) -o policynv
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policynv.o $(LNALIBS) -o bin/policynv
+ policynvwritten:	tss2/tss.h policynvwritten.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policynvwritten.o $(LNALIBS) -o policynvwritten
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policynvwritten.o $(LNALIBS) -o bin/policynvwritten
+ policyor:		tss2/tss.h policyor.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policyor.o $(LNALIBS) -o policyor
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policyor.o $(LNALIBS) -o bin/policyor
+ policypassword:		tss2/tss.h policypassword.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policypassword.o $(LNALIBS) -o policypassword
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policypassword.o $(LNALIBS) -o bin/policypassword
+ policypcr:		tss2/tss.h policypcr.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policypcr.o $(LNALIBS) -o policypcr
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policypcr.o $(LNALIBS) -o bin/policypcr
+ policyrestart:		tss2/tss.h policyrestart.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policyrestart.o $(LNALIBS) -o policyrestart
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policyrestart.o $(LNALIBS) -o bin/policyrestart
+ policysigned:		tss2/tss.h policysigned.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policysigned.o $(LNALIBS) -o policysigned
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policysigned.o $(LNALIBS) -o bin/policysigned
+ policysecret:		tss2/tss.h policysecret.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policysecret.o $(LNALIBS) -o policysecret
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policysecret.o $(LNALIBS) -o bin/policysecret
+ policytemplate:		tss2/tss.h policytemplate.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policytemplate.o $(LNALIBS) -o policytemplate
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policytemplate.o $(LNALIBS) -o bin/policytemplate
+ policyticket:		tss2/tss.h policyticket.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) policyticket.o $(LNALIBS) -o policyticket
++			$(CC) $(LNFLAGS) $(LNAFLAGS) policyticket.o $(LNALIBS) -o bin/policyticket
+ quote:			tss2/tss.h quote.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) quote.o $(LNALIBS) -o quote
++			$(CC) $(LNFLAGS) $(LNAFLAGS) quote.o $(LNALIBS) -o bin/quote
+ powerup:		tss2/tss.h powerup.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) powerup.o $(LNALIBS) -o powerup
++			$(CC) $(LNFLAGS) $(LNAFLAGS) powerup.o $(LNALIBS) -o bin/powerup
+ readclock:		tss2/tss.h readclock.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) readclock.o $(LNALIBS) -o readclock
++			$(CC) $(LNFLAGS) $(LNAFLAGS) readclock.o $(LNALIBS) -o bin/readclock
+ readpublic:		tss2/tss.h readpublic.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) readpublic.o cryptoutils.o $(LNALIBS) -o readpublic
++			$(CC) $(LNFLAGS) $(LNAFLAGS) readpublic.o cryptoutils.o $(LNALIBS) -o bin/readpublic
+ returncode:		tss2/tss.h returncode.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) returncode.o $(LNALIBS) -o returncode
++			$(CC) $(LNFLAGS) $(LNAFLAGS) returncode.o $(LNALIBS) -o bin/returncode
+ rewrap:			tss2/tss.h rewrap.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) rewrap.o $(LNALIBS) -o rewrap
++			$(CC) $(LNFLAGS) $(LNAFLAGS) rewrap.o $(LNALIBS) -o bin/rewrap
+ rsadecrypt: 		tss2/tss.h rsadecrypt.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) rsadecrypt.o $(LNALIBS) -o rsadecrypt
++			$(CC) $(LNFLAGS) $(LNAFLAGS) rsadecrypt.o $(LNALIBS) -o bin/rsadecrypt
+ rsaencrypt: 		tss2/tss.h rsaencrypt.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) rsaencrypt.o $(LNALIBS) -o rsaencrypt
++			$(CC) $(LNFLAGS) $(LNAFLAGS) rsaencrypt.o $(LNALIBS) -o bin/rsaencrypt
+ sequenceupdate:		tss2/tss.h sequenceupdate.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) sequenceupdate.o $(LNALIBS) -o sequenceupdate
++			$(CC) $(LNFLAGS) $(LNAFLAGS) sequenceupdate.o $(LNALIBS) -o bin/sequenceupdate
+ sequencecomplete:	tss2/tss.h sequencecomplete.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) sequencecomplete.o $(LNALIBS) -o sequencecomplete
++			$(CC) $(LNFLAGS) $(LNAFLAGS) sequencecomplete.o $(LNALIBS) -o bin/sequencecomplete
+ setprimarypolicy:	tss2/tss.h setprimarypolicy.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) setprimarypolicy.o $(LNALIBS) -o setprimarypolicy
++			$(CC) $(LNFLAGS) $(LNAFLAGS) setprimarypolicy.o $(LNALIBS) -o bin/setprimarypolicy
+ shutdown:		tss2/tss.h shutdown.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) shutdown.o $(LNALIBS) -o shutdown
++			$(CC) $(LNFLAGS) $(LNAFLAGS) shutdown.o $(LNALIBS) -o bin/shutdown
+ sign:			tss2/tss.h sign.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) sign.o $(LNALIBS) -o sign
++			$(CC) $(LNFLAGS) $(LNAFLAGS) sign.o $(LNALIBS) -o bin/sign
+ startauthsession:	tss2/tss.h startauthsession.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) startauthsession.o $(LNALIBS) -o startauthsession
++			$(CC) $(LNFLAGS) $(LNAFLAGS) startauthsession.o $(LNALIBS) -o bin/startauthsession
+ startup:		tss2/tss.h startup.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) startup.o $(LNALIBS) -o startup
++			$(CC) $(LNFLAGS) $(LNAFLAGS) startup.o $(LNALIBS) -o bin/startup
+ stirrandom:		tss2/tss.h stirrandom.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) stirrandom.o $(LNALIBS) -o stirrandom
++			$(CC) $(LNFLAGS) $(LNAFLAGS) stirrandom.o $(LNALIBS) -o bin/stirrandom
+ unseal:			tss2/tss.h unseal.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) unseal.o $(LNALIBS) -o unseal
++			$(CC) $(LNFLAGS) $(LNAFLAGS) unseal.o $(LNALIBS) -o bin/unseal
+ verifysignature:	tss2/tss.h verifysignature.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) verifysignature.o cryptoutils.o $(LNALIBS) -o verifysignature
++			$(CC) $(LNFLAGS) $(LNAFLAGS) verifysignature.o cryptoutils.o $(LNALIBS) -o bin/verifysignature
+ signapp:		tss2/tss.h signapp.o ekutils.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) signapp.o ekutils.o cryptoutils.o $(LNALIBS) -o signapp
++			$(CC) $(LNFLAGS) $(LNAFLAGS) signapp.o ekutils.o cryptoutils.o $(LNALIBS) -o bin/signapp
+ writeapp:		tss2/tss.h writeapp.o ekutils.o cryptoutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) writeapp.o ekutils.o cryptoutils.o $(LNALIBS) -o writeapp
++			$(CC) $(LNFLAGS) $(LNAFLAGS) writeapp.o ekutils.o cryptoutils.o $(LNALIBS) -o bin/writeapp
+ timepacket:		tss2/tss.h timepacket.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) timepacket.o $(LNALIBS) -o timepacket
++			$(CC) $(LNFLAGS) $(LNAFLAGS) timepacket.o $(LNALIBS) -o bin/timepacket
+ createek:		createek.o cryptoutils.o ekutils.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) createek.o cryptoutils.o ekutils.o $(LNALIBS) -o createek
++			$(CC) $(LNFLAGS) $(LNAFLAGS) createek.o cryptoutils.o ekutils.o $(LNALIBS) -o bin/createek
+ ntc2getconfig:		ntc2getconfig.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) ntc2getconfig.o $(LNALIBS) -o ntc2getconfig
++			$(CC) $(LNFLAGS) $(LNAFLAGS) ntc2getconfig.o $(LNALIBS) -o bin/ntc2getconfig
+ ntc2preconfig:		ntc2preconfig.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) ntc2preconfig.o $(LNALIBS) -o ntc2preconfig
++			$(CC) $(LNFLAGS) $(LNAFLAGS) ntc2preconfig.o $(LNALIBS) -o bin/ntc2preconfig
+ ntc2lockconfig:		ntc2lockconfig.o $(LIBTSS)
+-			$(CC) $(LNFLAGS) $(LNAFLAGS) ntc2lockconfig.o $(LNALIBS) -o ntc2lockconfig
++			$(CC) $(LNFLAGS) $(LNAFLAGS) ntc2lockconfig.o $(LNALIBS) -o bin/ntc2lockconfig
+ 
+ # for applications, not for TSS library
+ 
